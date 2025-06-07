@@ -21,15 +21,17 @@ GET /api/groups
 [{
   "groupId":1,
   "groupName":"Chores",
-  "tasks":
+  "activities":
   [
     {
-      "taskId":1,
-      "taskName":"Replace my sheet"
+      "activityId":1,
+      "activityName":"Replace my sheet",
+      "overdue": true
     },
     {
-      "taskId":2,
-      "taskName":"Clean the dishwasher filter"
+      "activityId":2,
+      "activityName":"Clean the dishwasher filter",
+      "overdue": null
     }
   ]
 }]
@@ -93,37 +95,39 @@ GET /api/groups/2/deletion-impact
 ```json
 {
   "groupName":"Self-care",
-  "associatedTasks": 5,
-  "associatedLogs": 15,
-  "associatedSchedules": 10
+  "associatedActivities": 5,
+  "associatedTasks": 15,
+  "associatedUncompletedTasks": 10
 }
 ```
 
 ---
 
 
-## Tasks
-### List tasks
+## Activities
+### List activities
 #### Request
 ```
-GET /api/tasks
+GET /api/activities
 ```
 #### Response example
 
 ```json
 [
   {
-    "taskId": 1,
-    "taskName": "Replace my sheet",
+    "activityId": 1,
+    "activityName": "Replace my sheet",
     "groupId": 1,
     "groupName": "Chores",
-    "taskOverdue": true,
+    "activityOverdue": true,
     "schedule": [
       {
+        "taskId": 7,
         "date": "2025-09-01",
         "overdue": true
       },
       {
+        "taskId": 8,
         "date": "2025-09-20",
         "overdue": false
       }
@@ -132,27 +136,99 @@ GET /api/tasks
     "daysSinceCompletion": null
   },
   {
-    "taskId": 2,
-    "taskName": "Clean the dishwasher filter",
+    "activityId": 2,
+    "activityName": "Clean the dishwasher filter",
     "groupId": 1,
     "groupName": "Chores",
-    "taskOverdue": false,
+    "activityOverdue": false,
     "schedule": null,
     "lastCompleted": ["2025-04-28"],
     "daysSinceCompletion": 50
   }
  ]
 ```
-### Create a task
+### Create an activity
 #### Request
 ```
-POST /api/tasks
+POST /api/activities
 ```
 Body:
 
 ```json
 {
-  "taskName":"Clean the toilet",
+  "activityName":"Clean the toilet",
+  "groupId":1
+}
+```
+
+#### Response examples
+- 201: success
+- 400: invalid input
+- 409: conflict for duplicated activity names under the same group
+- 500: internal server error
+
+### Update an activity
+#### Request
+```
+PUT /api/activities/1
+```
+Body:
+```json
+{
+  "activityName":"Replace my blue sheet",
+  "groupId": 2
+}
+```
+
+#### Response example
+- 200: success
+- 400: invalid input
+- 404: activity or group id not found
+- 409: conflict for duplicated activity names under the same group
+- 500: internal server error
+
+### Partially update an activity
+#### Request
+```
+PATCH /api/activities/1
+```
+Body:
+```json
+{
+  "activityName":"Replace my Bluey sheet"
+}
+```
+
+#### Response example
+- 200: success
+- 400: invalid input
+- 404: activity or group id not found
+- 409: conflict for duplicated activity names under the same group
+- 500: internal server error
+
+### Delete an activity
+#### Request
+```
+DELETE /api/activities/2
+```
+#### Response example
+- 200: success
+- 404: activity id not found
+- 500: internal server error
+
+### Deletion impact check
+#### Request
+```
+GET /api/activities/2/deletion-impact
+```
+#### Response example
+```json
+{
+  "activityName":"Clean the toilet",
+  "associatedTasks": 3,
+  "associatedUncompletedTasks": 2
+}
+```
   "groupId":1,
   "schedule": ["2025-09-01"]
 }
