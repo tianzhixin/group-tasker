@@ -12,10 +12,15 @@ Built as a full-stack project for learning purpose.
 - Task tracking: log your task with a complete date
 - Task scheduling
 
+---
+
 ## Features
 - RESTful API with OpenAPI (Swagger) spec
 - Supports pagination and filtering
 - Clean architecture with layered Spring Boot backend
+
+---
+
 
 ## Tech Stack
 
@@ -27,7 +32,7 @@ Built as a full-stack project for learning purpose.
 | API Spec   | OpenAPI 3.0 (YAML)                               |
 | Build Tool | Maven                                            |
 | Dev Tools  | GitHub, Sourcetree, Git Bash, IntelliJ IDEA      |
-
+---
 ## Getting Started
 
 ### Prerequisites
@@ -49,19 +54,18 @@ Built as a full-stack project for learning purpose.
 3. Access the API:
    http://localhost:8080/api/tasks
 
-4. API documentation
+## API documentation
    - Open API spec (yaml)
    - Request/response examples
    
-5. Screenshots/Demo
+## Screenshots/Demo
 
-6. Contributions
+## Contributions
    While this is a solo portfolio project, feel free to fork, branch, 
    and create pull requests.
 
-7. License
+## License
    This project is licensed under the MIT License.
-
-8. About me
+## About me
    
 
