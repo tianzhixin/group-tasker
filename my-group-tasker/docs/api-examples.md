@@ -117,7 +117,17 @@ GET /api/tasks
     "taskName": "Replace my sheet",
     "groupId": 1,
     "groupName": "Chores",
-    "schedule": ["2025-09-01","2025-09-20"],
+    "taskOverdue": true,
+    "schedule": [
+      {
+        "date": "2025-09-01",
+        "overdue": true
+      },
+      {
+        "date": "2025-09-20",
+        "overdue": false
+      }
+    ],
     "lastCompleted": null,
     "daysSinceCompletion": null
   },
@@ -126,6 +136,7 @@ GET /api/tasks
     "taskName": "Clean the dishwasher filter",
     "groupId": 1,
     "groupName": "Chores",
+    "taskOverdue": false,
     "schedule": null,
     "lastCompleted": ["2025-04-28"],
     "daysSinceCompletion": 50
