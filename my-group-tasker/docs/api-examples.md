@@ -1,6 +1,6 @@
 # Api examples
 RESTful API style is followed.
-## Groups
+## Task groups
 ### List groups
 #### Request
 ```
@@ -11,19 +11,19 @@ GET /api/groups
 
 ```json
 [{
-    "groupId":1,
-    "groupName":"Chores",
-    "tasks":
-            [
-                {
-                    "taskId":1,
-                    "taskName":"Replace my sheet"
-                },
-                {
-                    "taskId":2,
-                    "taskName":"Clean the dishwasher filter"
-                }
-            ]
+  "groupId":1,
+  "groupName":"Chores",
+  "tasks":
+  [
+    {
+      "taskId":1,
+      "taskName":"Replace my sheet"
+    },
+    {
+      "taskId":2,
+      "taskName":"Clean the dishwasher filter"
+    }
+  ]
 }]
 ```
 ### Add a group
@@ -35,7 +35,7 @@ Body:
 
 ```json
 {
-  "groupId":2, 
+  "groupId":2,
   "groupName":"Personal care"
 }
 ```
@@ -54,7 +54,7 @@ PUT /api/groups
 Body:
 ```json
 {
-  "groupId":2, 
+  "groupId":2,
   "groupName":"Self-care"
 }
 ```
@@ -90,4 +90,10 @@ GET /api/groups/2/deletion-impact
   "associatedLogs": 15,
   "associatedSchedules": 10
 }
+```
+## Tasks
+### List tasks
+#### Request
+```
+GET /api/tasks
 ```
