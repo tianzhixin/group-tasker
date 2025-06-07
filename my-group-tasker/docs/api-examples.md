@@ -48,12 +48,11 @@ Body:
 ### Modify a group
 #### Request
 ```
-PUT /api/groups
+PUT /api/groups/2
 ```
 Body:
 ```json
 {
-  "groupId":2,
   "groupName":"Self-care"
 }
 ```
