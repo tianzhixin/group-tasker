@@ -45,7 +45,7 @@ Body:
 - 409: conflict for duplicated group name
 - 500: internal server error
 
-### Modify a group
+### Update a group
 #### Request
 ```
 PUT /api/groups/2
@@ -72,7 +72,6 @@ DELETE /api/groups/2
 #### Response example
 - 200: success
 - 404: group id not found
-- 409: conflict for duplicated group name
 - 500: internal server error
 
 ### Deletion impact check
