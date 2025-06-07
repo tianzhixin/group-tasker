@@ -1,5 +1,13 @@
 # Api examples
 RESTful API style is followed.
+
+
+
+
+
+
+
+
 ## Task groups
 ### List groups
 #### Request
@@ -28,7 +36,7 @@ GET /api/groups
 ```
 
 
-### Add a group
+### Create a group
 #### Request
 ```
 POST /api/groups
@@ -124,7 +132,7 @@ GET /api/tasks
   }
  ]
 ```
-### Add a task
+### Create a task
 #### Request
 ```
 POST /api/tasks
