@@ -35,7 +35,6 @@ Body:
 
 ```json
 {
-  "groupId":2,
   "groupName":"Personal care"
 }
 ```
