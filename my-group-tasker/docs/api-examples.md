@@ -24,13 +24,13 @@ GET /api/groups
   "activities":
   [
     {
-      "activityId":1,
-      "activityName":"Replace my sheet",
+      "id":1,
+      "name":"Replace my sheet",
       "overdue": true
     },
     {
-      "activityId":2,
-      "activityName":"Clean the dishwasher filter",
+      "id":2,
+      "name":"Clean the dishwasher filter",
       "overdue": null
     }
   ]
