@@ -235,15 +235,132 @@ GET /api/activities/2/deletion-impact
   "associatedUncompletedTasks": 2
 }
 ```
-  "groupId":1,
-  "schedule": ["2025-09-01"]
+
+---
+
+
+## Tasks
+### List tasks
+#### Request
+```
+GET /api/tasks
+```
+#### Response example
+
+```json
+[
+  {
+    "id": 3,
+    "activity": {
+      "id": 1,
+      "name": "Replace my sheet"
+    },
+    "group": {
+      "id": 1,
+      "name": "Chores"
+    },
+    "dueDate": "2025-05-28",
+    "status": "overdue",
+    "daysOverdue": 30,
+    "completionDate": null,
+    "daysSinceCompletion": null
+  },
+  {
+    "id": 7,
+    "activity": {
+      "id": 2,
+      "name": "Clean the dishwasher filter"
+    },
+    "group": {
+      "id": 1,
+      "name": "Chores"
+    },
+    "dueDate": null,
+    "status": "completed",
+    "daysOverdue": null,
+    "completionDate": "2025-03-28",
+    "daysSinceCompletion": 90
+  },
+  {
+    "id": 9,
+    "activity": {
+      "id": 2,
+      "name": "Clean the dishwasher filter"
+    },
+    "group": {
+      "id": 1,
+      "name": "Chores"
+    },
+    "dueDate": "2025-08-1",
+    "status": "to-do",
+    "daysOverdue": null,
+    "completionDate": null,
+    "daysSinceCompletion": null
+  }
+]
+```
+### List tasks under an activity
+#### Request
+```
+GET /api/activities/7/tasks
+```
+#### Response example
+
+```json
+[
+  {
+    "id": 7,
+    "activity": {
+      "id": 2,
+      "name": "Clean the dishwasher filter"
+    },
+    "group": {
+      "id": 1,
+      "name": "Chores"
+    },
+    "dueDate": null,
+    "status": "completed",
+    "daysOverdue": null,
+    "completionDate": "2025-03-28",
+    "daysSinceCompletion": 90
+  },
+  {
+    "id": 9,
+    "activity": {
+      "id": 2,
+      "name": "Clean the dishwasher filter"
+    },
+    "group": {
+      "id": 1,
+      "name": "Chores"
+    },
+    "dueDate": "2025-08-1",
+    "status": "to-do",
+    "daysOverdue": null,
+    "completionDate": null,
+    "daysSinceCompletion": null
+  }
+]
+```
+
+### Create a task
+#### Request
+```
+POST /api/task
+```
+Body:
+
+```json
+{
+  "activityId":5,
+  "dueDate": "2025-08-1",
+  "completionDate": null
 }
 ```
 
 #### Response examples
 - 201: success
 - 400: invalid input
-- 409: conflict for duplicated task names under the same group
 - 500: internal server error
 
 ### Update a task
@@ -254,17 +371,16 @@ PUT /api/tasks/1
 Body:
 ```json
 {
-  "taskName":"Replace my blue sheet",
-  "groupId": 2,
-  "schedule": ["2025-07-01"]
+  "activityId":8,
+  "dueDate": "2025-08-1",
+  "completionDate": "2025-07-01"
 }
 ```
 
 #### Response example
 - 200: success
 - 400: invalid input
-- 404: task or group id not found
-- 409: conflict for duplicated task names under the same group
+- 404: task or activity id not found
 - 500: internal server error
 
 ### Partially update a task
@@ -275,18 +391,27 @@ PATCH /api/tasks/1
 Body:
 ```json
 {
-  "taskName":"Replace my Bluey sheet"
+  "completionDate":"2025-07-02"
 }
 ```
-
 #### Response example
 - 200: success
 - 400: invalid input
-- 404: task or group id not found
-- 409: conflict for duplicated task names under the same group
+- 404: task id not found
 - 500: internal server error
 
-### Delete a group
+### Mark a task as completed today
+#### Request
+```
+PATCH /tasks/123/complete
+```
+#### Response example
+- 200: success
+- 404: task id not found
+- 500: internal server error
+
+
+### Delete a task
 #### Request
 ```
 DELETE /api/tasks/2
@@ -296,16 +421,5 @@ DELETE /api/tasks/2
 - 404: task id not found
 - 500: internal server error
 
-### Deletion impact check
-#### Request
-```
-GET /api/tasks/2/deletion-impact
-```
-#### Response example
-```json
-{
-  "taskName":"Clean the toilet",
-  "associatedLogs": 3,
-  "associatedSchedules": 2
-}
-```
+
+
