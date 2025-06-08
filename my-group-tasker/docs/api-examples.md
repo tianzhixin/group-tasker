@@ -19,8 +19,8 @@ GET /api/groups
 
 ```json
 [{
-  "groupId":1,
-  "groupName":"Chores",
+  "id":1,
+  "name":"Chores",
   "activities":
   [
     {
@@ -47,7 +47,7 @@ Body:
 
 ```json
 {
-  "groupName":"Personal care"
+  "name":"Personal care"
 }
 ```
 
@@ -65,7 +65,7 @@ PUT /api/groups/2
 Body:
 ```json
 {
-  "groupName":"Self-care"
+  "name":"Self-care"
 }
 ```
 
@@ -94,7 +94,7 @@ GET /api/groups/2/deletion-impact
 #### Response example
 ```json
 {
-  "groupName":"Self-care",
+  "name":"Self-care",
   "associatedActivities": 5,
   "associatedTasks": 15,
   "associatedUncompletedTasks": 10
@@ -115,20 +115,22 @@ GET /api/activities
 ```json
 [
   {
-    "activityId": 1,
-    "activityName": "Replace my sheet",
-    "groupId": 1,
-    "groupName": "Chores",
-    "activityOverdue": true,
+    "id": 1,
+    "name": "Replace my sheet",
+    "group": {
+      "id": 1,
+      "name": "Chores"
+    },
+    "overdue": true,
     "schedule": [
       {
         "taskId": 7,
-        "date": "2025-09-01",
+        "dueDate": "2025-09-01",
         "overdue": true
       },
       {
         "taskId": 8,
-        "date": "2025-09-20",
+        "dueDate": "2025-09-20",
         "overdue": false
       }
     ],
@@ -136,16 +138,20 @@ GET /api/activities
     "daysSinceCompletion": null
   },
   {
-    "activityId": 2,
-    "activityName": "Clean the dishwasher filter",
-    "groupId": 1,
-    "groupName": "Chores",
-    "activityOverdue": false,
+    "id": 2,
+    "name": "Clean the dishwasher filter",
+    "group": {
+      "id": 1,
+      "name": "Chores"
+    },
+    "overdue": false,
     "schedule": null,
-    "lastCompleted": ["2025-04-28"],
+    "lastCompleted": [
+      "2025-04-28"
+    ],
     "daysSinceCompletion": 50
   }
- ]
+]
 ```
 ### Create an activity
 #### Request
@@ -156,7 +162,7 @@ Body:
 
 ```json
 {
-  "activityName":"Clean the toilet",
+  "name":"Clean the toilet",
   "groupId":1
 }
 ```
@@ -175,7 +181,7 @@ PUT /api/activities/1
 Body:
 ```json
 {
-  "activityName":"Replace my blue sheet",
+  "name":"Replace my blue sheet",
   "groupId": 2
 }
 ```
@@ -195,7 +201,7 @@ PATCH /api/activities/1
 Body:
 ```json
 {
-  "activityName":"Replace my Bluey sheet"
+  "name":"Replace my Bluey sheet"
 }
 ```
 
@@ -224,7 +230,7 @@ GET /api/activities/2/deletion-impact
 #### Response example
 ```json
 {
-  "activityName":"Clean the toilet",
+  "name":"Clean the toilet",
   "associatedTasks": 3,
   "associatedUncompletedTasks": 2
 }
