@@ -1,16 +1,22 @@
 # my-group-tasker
-Tired of tracking when you replaced your toothbrush and your sheets on 
-a whiteboard? Try me. I am a simple app to track your tasks.
+
+Tired of guessing when you last changed your toothbrush or bedsheets? Try
+me — a simple, no-fuss app that helps you keep track of recurring tasks.
 
 Built as a full-stack project for learning purpose.
 
 ---
 
 ## What you can do with me
-- Create and manage task groups (e.g. chores, personal care, study)
-- Assign tasks (e.g. replace my blue sheet) to groups
-- Task tracking: log your task with a complete date
-- Task scheduling
+
+* Set up recurring activities like “Change my blue bedsheet” — never forget
+  the little things again.
+* Organise your life by grouping activities into categories like chores,
+  personal care, or study.
+* Schedule tasks by setting a due date for each activity — plan ahead with
+  ease.
+* Track your progress by logging a completion date when a task is done
+  — stay on top of what you've finished.
 
 ---
 
