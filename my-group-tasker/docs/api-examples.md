@@ -1,6 +1,31 @@
 # Api examples
 RESTful API style is followed.
 
+## Table of Contents
+
+- [Api examples](#api-examples)
+    - [Task groups](#task-groups)
+        - [List groups](#list-groups)
+        - [Create a group](#create-a-group)
+        - [Update a group](#update-a-group)
+        - [Delete a group](#delete-a-group)
+        - [Deletion impact check](#deletion-impact-check)
+    - [Activities](#activities)
+        - [List activities](#list-activities)
+        - [Create an activity](#create-an-activity)
+        - [Update an activity](#update-an-activity)
+        - [Partially update an activity](#partially-update-an-activity)
+        - [Delete an activity](#delete-an-activity)
+        - [Deletion impact check](#deletion-impact-check)
+    - [Tasks](#tasks)
+        - [List tasks](#list-tasks)
+        - [List tasks under an activity](#list-tasks-under-an-activity)
+        - [Create a task](#create-a-task)
+        - [Update a task](#update-a-task)
+        - [Partially update a task](#partially-update-a-task)
+        - [Mark a task as completed today](#mark-a-task-as-completed-today)
+        - [Delete a task](#delete-a-task)
+
 
 ## Task groups
 ### List groups
@@ -318,7 +343,7 @@ GET /api/tasks?page=0&size=3
 ```
 Another request example with sorting and filtering parameters:
 ```
-GET /api/tasks?page=0&size=3&sort=dueDate,asc&status=overdue&groudId=1
+GET /api/tasks?page=0&size=3&sort=dueDate,asc&status=overdue&groupId=1
 ```
 The response will be similar to above and is omitted here.
 
@@ -377,7 +402,7 @@ GET /api/activities/7/tasks?page=0&size=2
 ### Create a task
 #### Request
 ```
-POST /api/task
+POST /api/tasks
 ```
 Body:
 
@@ -434,7 +459,7 @@ Body:
 ### Mark a task as completed today
 #### Request
 ```
-PATCH /tasks/123/complete
+PATCH api/tasks/123/complete
 ```
 #### Response example
 - 200: success
