@@ -2,39 +2,41 @@
 RESTful API style is followed.
 
 
-
-
-
-
-
-
 ## Task groups
 ### List groups
 #### Request
 ```
-GET /api/groups
+GET /api/groups?page=0&size=2
 ```
 #### Response example
 
-
 ```json
-[{
-  "id":1,
-  "name":"Chores",
-  "activities":
-  [
+{
+  "content": [
     {
-      "id":1,
-      "name":"Replace my sheet",
-      "overdue": true
-    },
-    {
-      "id":2,
-      "name":"Clean the dishwasher filter",
-      "overdue": null
+      "id": 1,
+      "name": "Chores",
+      "activities": [
+        {
+          "id": 1,
+          "name": "Replace my sheet",
+          "overdue": true
+        },
+        {
+          "id": 2,
+          "name": "Clean the dishwasher filter",
+          "overdue": false
+        }
+      ]
     }
-  ]
-}]
+  ],
+  "page": 0,
+  "size": 2,
+  "totalPages": 3,
+  "totalElements": 5,
+  "last": false  
+}
+
 ```
 
 
@@ -108,50 +110,58 @@ GET /api/groups/2/deletion-impact
 ### List activities
 #### Request
 ```
-GET /api/activities
+GET /api/activities?page=0&size=2
 ```
 #### Response example
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Replace my sheet",
-    "group": {
+{
+  "content": [
+    {
       "id": 1,
-      "name": "Chores"
-    },
-    "overdue": true,
-    "schedule": [
-      {
-        "taskId": 7,
-        "dueDate": "2025-09-01",
-        "overdue": true
+      "name": "Replace my sheet",
+      "group": {
+        "id": 1,
+        "name": "Chores"
       },
-      {
-        "taskId": 8,
-        "dueDate": "2025-09-20",
-        "overdue": false
-      }
-    ],
-    "lastCompleted": null,
-    "daysSinceCompletion": null
-  },
-  {
-    "id": 2,
-    "name": "Clean the dishwasher filter",
-    "group": {
-      "id": 1,
-      "name": "Chores"
+      "overdue": true,
+      "schedule": [
+        {
+          "taskId": 7,
+          "dueDate": "2025-09-01",
+          "overdue": true
+        },
+        {
+          "taskId": 8,
+          "dueDate": "2025-09-20",
+          "overdue": false
+        }
+      ],
+      "lastCompleted": null,
+      "daysSinceCompletion": null
     },
-    "overdue": false,
-    "schedule": null,
-    "lastCompleted": [
-      "2025-04-28"
-    ],
-    "daysSinceCompletion": 50
-  }
-]
+    {
+      "id": 2,
+      "name": "Clean the dishwasher filter",
+      "group": {
+        "id": 1,
+        "name": "Chores"
+      },
+      "overdue": false,
+      "schedule": null,
+      "lastCompleted": [
+        "2025-04-28"
+      ],
+      "daysSinceCompletion": 50
+    }
+  ],
+  "page": 0,
+  "size": 2,
+  "totalPages": 3,
+  "totalElements": 5,
+  "last": false
+}
+
 ```
 ### Create an activity
 #### Request
@@ -243,104 +253,119 @@ GET /api/activities/2/deletion-impact
 ### List tasks
 #### Request
 ```
-GET /api/tasks
+GET /api/tasks?page=0&size=3
 ```
 #### Response example
 
 ```json
-[
-  {
-    "id": 3,
-    "activity": {
-      "id": 1,
-      "name": "Replace my sheet"
+{
+  "content": [
+    {
+      "id": 3,
+      "activity": {
+        "id": 1,
+        "name": "Replace my sheet"
+      },
+      "group": {
+        "id": 1,
+        "name": "Chores"
+      },
+      "dueDate": "2025-05-28",
+      "status": "overdue",
+      "daysOverdue": 30,
+      "completionDate": null,
+      "daysSinceCompletion": null
     },
-    "group": {
-      "id": 1,
-      "name": "Chores"
+    {
+      "id": 7,
+      "activity": {
+        "id": 2,
+        "name": "Clean the dishwasher filter"
+      },
+      "group": {
+        "id": 1,
+        "name": "Chores"
+      },
+      "dueDate": null,
+      "status": "completed",
+      "daysOverdue": null,
+      "completionDate": "2025-03-28",
+      "daysSinceCompletion": 90
     },
-    "dueDate": "2025-05-28",
-    "status": "overdue",
-    "daysOverdue": 30,
-    "completionDate": null,
-    "daysSinceCompletion": null
-  },
-  {
-    "id": 7,
-    "activity": {
-      "id": 2,
-      "name": "Clean the dishwasher filter"
-    },
-    "group": {
-      "id": 1,
-      "name": "Chores"
-    },
-    "dueDate": null,
-    "status": "completed",
-    "daysOverdue": null,
-    "completionDate": "2025-03-28",
-    "daysSinceCompletion": 90
-  },
-  {
-    "id": 9,
-    "activity": {
-      "id": 2,
-      "name": "Clean the dishwasher filter"
-    },
-    "group": {
-      "id": 1,
-      "name": "Chores"
-    },
-    "dueDate": "2025-08-1",
-    "status": "to-do",
-    "daysOverdue": null,
-    "completionDate": null,
-    "daysSinceCompletion": null
-  }
-]
+    {
+      "id": 9,
+      "activity": {
+        "id": 2,
+        "name": "Clean the dishwasher filter"
+      },
+      "group": {
+        "id": 1,
+        "name": "Chores"
+      },
+      "dueDate": "2025-08-1",
+      "status": "to-do",
+      "daysOverdue": null,
+      "completionDate": null,
+      "daysSinceCompletion": null
+    }
+  ],
+  "page": 0,
+  "size": 3,
+  "totalPages": 3,
+  "totalElements": 8,
+  "last": false
+}
 ```
 ### List tasks under an activity
 #### Request
 ```
-GET /api/activities/7/tasks
+GET /api/activities/7/tasks?page=0&size=2
 ```
 #### Response example
 
 ```json
-[
-  {
-    "id": 7,
-    "activity": {
-      "id": 2,
-      "name": "Clean the dishwasher filter"
+{
+  "content": [
+    {
+      "id": 7,
+      "activity": {
+        "id": 2,
+        "name": "Clean the dishwasher filter"
+      },
+      "group": {
+        "id": 1,
+        "name": "Chores"
+      },
+      "dueDate": null,
+      "status": "completed",
+      "daysOverdue": null,
+      "completionDate": "2025-03-28",
+      "daysSinceCompletion": 90
     },
-    "group": {
-      "id": 1,
-      "name": "Chores"
-    },
-    "dueDate": null,
-    "status": "completed",
-    "daysOverdue": null,
-    "completionDate": "2025-03-28",
-    "daysSinceCompletion": 90
-  },
-  {
-    "id": 9,
-    "activity": {
-      "id": 2,
-      "name": "Clean the dishwasher filter"
-    },
-    "group": {
-      "id": 1,
-      "name": "Chores"
-    },
-    "dueDate": "2025-08-1",
-    "status": "to-do",
-    "daysOverdue": null,
-    "completionDate": null,
-    "daysSinceCompletion": null
-  }
-]
+    {
+      "id": 9,
+      "activity": {
+        "id": 2,
+        "name": "Clean the dishwasher filter"
+      },
+      "group": {
+        "id": 1,
+        "name": "Chores"
+      },
+      "dueDate": "2025-08-1",
+      "status": "to-do",
+      "daysOverdue": null,
+      "completionDate": null,
+      "daysSinceCompletion": null
+    }
+  ],
+  "page": 0,
+  "size": 2,
+  "totalPages": 3,
+  "totalElements": 5,
+  "last": false
+}
+
 ```
 
 ### Create a task
