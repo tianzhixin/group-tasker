@@ -6,7 +6,7 @@ RESTful API style is followed.
 ### List groups
 #### Request
 ```
-GET /api/groups?page=0&size=2
+GET /api/groups?page=0&size=2&sort=name,desc
 ```
 #### Response example
 
@@ -110,7 +110,7 @@ GET /api/groups/2/deletion-impact
 ### List activities
 #### Request
 ```
-GET /api/activities?page=0&size=2
+GET /api/activities?page=0&size=2&sort=name,asc
 ```
 #### Response example
 
@@ -316,6 +316,12 @@ GET /api/tasks?page=0&size=3
   "last": false
 }
 ```
+Another request example with sorting and filtering parameters:
+```
+GET /api/tasks?page=0&size=3&sort=dueDate,asc&status=overdue&groudId=1
+```
+The response will be similar to above and is omitted here.
+
 ### List tasks under an activity
 #### Request
 ```
