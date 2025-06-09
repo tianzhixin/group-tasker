@@ -1,6 +1,31 @@
 # Api examples
 RESTful API style is followed.
 
+## Table of Contents
+
+- [Api examples](#api-examples)
+    - [Task groups](#task-groups)
+        - [List groups](#list-groups)
+        - [Create a group](#create-a-group)
+        - [Update a group](#update-a-group)
+        - [Delete a group](#delete-a-group)
+        - [Deletion impact check](#deletion-impact-check)
+    - [Activities](#activities)
+        - [List activities](#list-activities)
+        - [Create an activity](#create-an-activity)
+        - [Update an activity](#update-an-activity)
+        - [Partially update an activity](#partially-update-an-activity)
+        - [Delete an activity](#delete-an-activity)
+        - [Deletion impact check](#deletion-impact-check)
+    - [Tasks](#tasks)
+        - [List tasks](#list-tasks)
+        - [List tasks under an activity](#list-tasks-under-an-activity)
+        - [Create a task](#create-a-task)
+        - [Update a task](#update-a-task)
+        - [Partially update a task](#partially-update-a-task)
+        - [Mark a task as completed today](#mark-a-task-as-completed-today)
+        - [Delete a task](#delete-a-task)
+
 
 ## Task groups
 ### List groups
