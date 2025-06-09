@@ -318,7 +318,7 @@ GET /api/tasks?page=0&size=3
 ```
 Another request example with sorting and filtering parameters:
 ```
-GET /api/tasks?page=0&size=3&sort=dueDate,asc&status=overdue&groudId=1
+GET /api/tasks?page=0&size=3&sort=dueDate,asc&status=overdue&groupId=1
 ```
 The response will be similar to above and is omitted here.
 
@@ -377,7 +377,7 @@ GET /api/activities/7/tasks?page=0&size=2
 ### Create a task
 #### Request
 ```
-POST /api/task
+POST /api/tasks
 ```
 Body:
 
@@ -434,7 +434,7 @@ Body:
 ### Mark a task as completed today
 #### Request
 ```
-PATCH /tasks/123/complete
+PATCH api/tasks/123/complete
 ```
 #### Response example
 - 200: success
