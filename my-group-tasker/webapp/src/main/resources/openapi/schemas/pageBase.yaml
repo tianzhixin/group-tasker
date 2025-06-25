@@ -25,6 +25,8 @@ components:
           type: integer
           format: int32
           default: 15
+          minimum: 5
+          maximum: 25
         totalPages:
           type: integer
           format: int32
