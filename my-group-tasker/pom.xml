@@ -17,7 +17,7 @@
     <modules>
         <module>models</module>
 <!--        <module>sdk</module>-->
-<!--        <module>skeleton</module>-->
+        <module>skeleton</module>
         <module>webapp</module>
     </modules>
 
