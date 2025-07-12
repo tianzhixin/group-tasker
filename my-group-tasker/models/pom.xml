@@ -66,8 +66,8 @@
                                 <serializableModel>false</serializableModel>
                                 <dateLibrary>java8</dateLibrary>
                                 <useJakartaEe>true</useJakartaEe>
-                                <library>resttemplate</library>               <!-- optional -->
-                                <serializationLibrary>jackson</serializationLibrary>  <!-- ✅ important -->
+                                <library>resttemplate</library>
+                                <serializationLibrary>jackson</serializationLibrary>
                             </configOptions>
                         </configuration>
                     </execution>

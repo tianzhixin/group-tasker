@@ -65,6 +65,11 @@
             <artifactId>models</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.6</version>
+        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.example</groupId>-->
 <!--            <artifactId>skeleton</artifactId>-->
@@ -90,14 +95,15 @@
                             <modelPackage>${base.package}.model</modelPackage>
                             <apiPackage>${base.package}.api</apiPackage>
                             <generateModels>false</generateModels>
+                            <generateApis>false</generateApis>
 <!--                            <interfaceOnly>false</interfaceOnly>-->
-                            <generateSupportingFiles>false</generateSupportingFiles>
                             <configOptions>
                                 <useJakartaEe>true</useJakartaEe>
                                 <dateLibrary>java8</dateLibrary>
                                 <delegatePattern>true</delegatePattern>
                                 <library>spring-boot</library>
                                 <useTags>true</useTags>
+                                <useOptional>true</useOptional>
                             </configOptions>
                         </configuration>
                     </execution>

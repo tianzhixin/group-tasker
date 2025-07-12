@@ -78,18 +78,19 @@
                             <inputSpec>${project.basedir}/../webapp/src/main/resources/openapi/tasker-oas.yaml</inputSpec>
                             <generatorName>spring</generatorName>
                             <output>${project.build.directory}/generated-sources</output>
-                            <modelPackage>${base.package}.model</modelPackage>
+<!--                            <modelPackage>${base.package}.model</modelPackage>-->
                             <apiPackage>${base.package}.api</apiPackage>
                             <generateModels>false</generateModels>
                             <generatePom>true</generatePom>
-                            <interfaceOnly>true</interfaceOnly>
                             <verbose>true</verbose>
                             <library>spring-boot</library>
                             <!--                            <generateSupportingFiles>true</generateSupportingFiles>-->
                             <configOptions>
                                 <dateLibrary>java8</dateLibrary>
+                                <supportingFilesToGenerate>ApiUtil</supportingFilesToGenerate>
                                 <useJakartaEe>true</useJakartaEe>
                                 <openApiNullable>false</openApiNullable>
+                                <interfaceOnly>true</interfaceOnly>
                             </configOptions>
                         </configuration>
                     </execution>
