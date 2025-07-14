@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.example</groupId>
+        <groupId>com.example.tasker</groupId>
         <artifactId>my-group-tasker</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -61,7 +61,7 @@
             <version>2.5.0</version>
         </dependency>
         <dependency>
-            <groupId>com.example</groupId>
+            <groupId>com.example.tasker</groupId>
             <artifactId>models</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -79,36 +79,36 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>7.4.0</version>
-                <executions>
-                    <execution>
-                        <id>generate-controller-stubs</id>
-                        <phase>generate-sources</phase>
-                        <goals><goal>generate</goal></goals>
-                        <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/openapi/tasker-oas.yaml</inputSpec>
-                            <generatorName>spring</generatorName>
-                            <output>${project.build.directory}/generated-sources</output>
-                            <modelPackage>${base.package}.model</modelPackage>
-                            <apiPackage>${base.package}.api</apiPackage>
-                            <generateModels>false</generateModels>
-                            <generateApis>false</generateApis>
-<!--                            <interfaceOnly>false</interfaceOnly>-->
-                            <configOptions>
-                                <useJakartaEe>true</useJakartaEe>
-                                <dateLibrary>java8</dateLibrary>
-                                <delegatePattern>true</delegatePattern>
-                                <library>spring-boot</library>
-                                <useTags>true</useTags>
-                                <useOptional>true</useOptional>
-                            </configOptions>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.openapitools</groupId>-->
+<!--                <artifactId>openapi-generator-maven-plugin</artifactId>-->
+<!--                <version>7.4.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>generate-controller-stubs</id>-->
+<!--                        <phase>generate-sources</phase>-->
+<!--                        <goals><goal>generate</goal></goals>-->
+<!--                        <configuration>-->
+<!--                            <inputSpec>${project.basedir}/src/main/resources/openapi/tasker-oas.yaml</inputSpec>-->
+<!--                            <generatorName>spring</generatorName>-->
+<!--                            <output>${project.build.directory}/generated-sources</output>-->
+<!--                            <modelPackage>${base.package}.model</modelPackage>-->
+<!--                            <apiPackage>${base.package}.api</apiPackage>-->
+<!--                            <generateModels>false</generateModels>-->
+<!--                            <generateApis>false</generateApis>-->
+<!--&lt;!&ndash;                            <interfaceOnly>false</interfaceOnly>&ndash;&gt;-->
+<!--                            <configOptions>-->
+<!--                                <useJakartaEe>true</useJakartaEe>-->
+<!--                                <dateLibrary>java8</dateLibrary>-->
+<!--                                <delegatePattern>true</delegatePattern>-->
+<!--                                <library>spring-boot</library>-->
+<!--                                <useTags>true</useTags>-->
+<!--                                <useOptional>true</useOptional>-->
+<!--                            </configOptions>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
