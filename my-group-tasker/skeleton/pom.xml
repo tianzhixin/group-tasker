@@ -81,7 +81,6 @@
                             <modelPackage>${base.package}.models.model</modelPackage>
                             <apiPackage>${base.package}.skeleton.api</apiPackage>
                             <generateModels>false</generateModels>
-                            <generatePom>true</generatePom>
                             <verbose>true</verbose>
                             <library>spring-boot</library>
                             <!--                            <generateSupportingFiles>true</generateSupportingFiles>-->
@@ -91,6 +90,7 @@
                                 <useJakartaEe>true</useJakartaEe>
                                 <openApiNullable>false</openApiNullable>
                                 <interfaceOnly>true</interfaceOnly>
+                                <generatePom>true</generatePom>
                             </configOptions>
                         </configuration>
                     </execution>

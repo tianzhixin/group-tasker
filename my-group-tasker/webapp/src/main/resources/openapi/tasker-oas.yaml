@@ -29,7 +29,7 @@ tags:
     description: Manage individual task instances under activities, including status and due dates.
 
 servers:
-  - url: https://localhost/group-tasker-api
+  - url: https://localhost/group-tasker
 
 paths:
   /groups:
