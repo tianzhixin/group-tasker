@@ -1,0 +1,37 @@
+openapi: "3.0.3"
+info:
+  title: Schemas for PageBase.
+  version: ${project.version}
+paths:
+  /schemas/pageBase:
+    summary: Contains only schema objects.
+
+components:
+  schemas:
+    PageBase:
+      type: object
+      required:
+        - page
+        - size
+        - totalPages
+        - totalElements
+        - last
+      properties:
+        page:
+          type: integer
+          format: int32
+          default: 0
+        size:
+          type: integer
+          format: int32
+          default: 15
+          minimum: 5
+          maximum: 25
+        totalPages:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+        last:
+          type: boolean
