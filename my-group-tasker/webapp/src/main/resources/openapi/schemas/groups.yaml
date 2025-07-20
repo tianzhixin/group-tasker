@@ -34,9 +34,9 @@ components:
         activities:
           type: array
           items:
-            $ref: '#/components/schemas/Activity'
+            $ref: '#/components/schemas/ActivitySummary'
 
-    Activity:
+    ActivitySummary:
       type: object
       required:
         - id
