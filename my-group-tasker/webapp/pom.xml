@@ -53,12 +53,12 @@
         <dependency>
             <groupId>com.example.tasker</groupId>
             <artifactId>models</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.example.tasker</groupId>
             <artifactId>skeleton</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>org.openapitools</groupId>-->

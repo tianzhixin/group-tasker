@@ -29,7 +29,7 @@
         <dependency>
             <groupId>com.example.tasker</groupId>
             <artifactId>models</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
