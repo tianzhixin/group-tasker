@@ -55,7 +55,7 @@
                         <phase>generate-sources</phase>
                         <goals><goal>generate</goal></goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/../webapp/src/main/resources/openapi/tasker-oas.yaml</inputSpec>
+                            <inputSpec>${oas.file}</inputSpec>
                             <generatorName>java</generatorName>
                             <output>${project.build.directory}/generated-sources</output>
                             <modelPackage>${base.package}.models.model</modelPackage>
