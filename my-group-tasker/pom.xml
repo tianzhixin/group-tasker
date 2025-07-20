@@ -2,17 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>maven-central</id>-->
-<!--            <url>https://repo.maven.apache.org/maven2</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.5.0</version>
-        <relativePath/>
+        <relativePath/> <!--Explicitly tells maven to search for the parent in the local maven repo or central repo rather than the project folder-->
     </parent>
     <groupId>com.example.tasker</groupId>
     <artifactId>my-group-tasker</artifactId>
