@@ -40,25 +40,6 @@
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.openapitools</groupId>-->
-<!--            <artifactId>jackson-databind-nullable</artifactId>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.5.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>2.2.20</version>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springdoc</groupId>-->
-<!--            <artifactId>springdoc-openapi-common</artifactId>-->
-<!--            <version>2.5.0</version>-->
-<!--        </dependency>-->
     </dependencies>
 
 
@@ -83,7 +64,6 @@
                             <generateModels>false</generateModels>
                             <verbose>true</verbose>
                             <library>spring-boot</library>
-                            <!--                            <generateSupportingFiles>true</generateSupportingFiles>-->
                             <configOptions>
                                 <dateLibrary>java8</dateLibrary>
                                 <supportingFilesToGenerate>ApiUtil</supportingFilesToGenerate>
