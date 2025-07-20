@@ -1,0 +1,56 @@
+openapi: "3.0.3"
+info:
+  title: Schemas for Groups page.
+  version: ${project.version}
+paths:
+  /schemas/groups:
+    summary: Contains only schema objects.
+
+components:
+  schemas:
+    GroupPage:
+      allOf:
+        - $ref: './pageBase.yaml#/components/schemas/PageBase'
+        - type: object
+          required:
+            - content
+          properties:
+            content:
+              type: array
+              items:
+                $ref: '#/components/schemas/Group'
+    Group:
+      type: object
+      required:
+        - id
+        - name
+        - activities
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActivitySummary'
+
+    ActivitySummary:
+      type: object
+      required:
+        - id
+        - name
+        - overdue
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        overdue:
+          type: boolean
+
+
+
+

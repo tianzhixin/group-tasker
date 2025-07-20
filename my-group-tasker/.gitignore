@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+### Customised ###
+*.pptx
+*.docx
+*.xmind

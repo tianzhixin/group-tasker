@@ -53,6 +53,11 @@ GET /api/groups?page=0&size=2&sort=name,desc
           "overdue": false
         }
       ]
+    },
+    {
+      "id": 2,
+      "name": "Personal care",
+      "activities": null
     }
   ],
   "page": 0,

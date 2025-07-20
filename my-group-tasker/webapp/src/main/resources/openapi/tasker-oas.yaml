@@ -1,0 +1,76 @@
+openapi: "3.0.3"
+info:
+  title: Group Tasker API
+  version: ${project.version}
+  description: |
+    The Group Tasker API ("the API") allows users to create and schedule their own activities and track the completion dates.
+
+    The API uses the RESTful architectural style.
+    
+    ### Error Responses
+    
+    Errors are communicated by way of an appropriate HTTP status code.
+    In the event of an error, where possible, the response body will contain a problem definition conforming to [RFC 7807](https://tools.ietf.org/html/rfc7807).
+    
+    To resolve an error, a client application should first examine the HTTP status code.
+
+    If additional information is required to handle the error and the response content type is `application/problem+json`, the client application should examine the value of the
+    response problem's `type` field.
+
+    Finally, if the problem's `type` indicates that a custom problem object exists, the client application
+    may extract additional information from the problem object.
+
+tags: #Controllers will be created corresponding to each tag if <useTags> is true in openapi generator maven plugin.
+  - name: Groups
+    description: Manage task groups that categorize activities (e.g., Chores, Personal Care).
+  - name: Activities
+    description: Manage recurring or scheduled activities that belong to task groups.yaml.
+  - name: Tasks
+    description: Manage individual task instances under activities, including status and due dates.
+
+servers:
+  - url: https://localhost/group-tasker
+
+paths:
+  /groups:
+    get:
+      summary: Retrieve activity groups
+      description: |
+        This operation returns all activity groups in alphabetical order.
+        Supports paging of results through the optional `page` and `size` query parameters.
+
+      tags:
+        - Groups
+      operationId: getGroups
+      parameters:
+        - name: size
+          description: |
+            Limits the number of groups displayed on each page.
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 15
+          required: false
+        - name: page
+          description: |
+            Supports pagination by allowing the client to provide a zero-based starting page for a query.
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          required: false
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "./schemas/groups.yaml#/components/schemas/GroupPage"
+        default:
+          description: Request failed
+          content:
+            application/problem+json:
+              schema:
+                $ref: "./schemas/problems.yaml#/components/schemas/Problem"
