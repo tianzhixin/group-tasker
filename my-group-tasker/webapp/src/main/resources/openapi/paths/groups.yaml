@@ -39,3 +39,25 @@ get:
         application/problem+json:
           schema:
             $ref: "../schemas/problems.yaml#/components/schemas/Problem"
+
+post:
+  summary: Create a new group
+  tags:
+    - Groups
+  operationId: createGroup
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/groups.yaml#/components/schemas/CreateGroupRequest'
+  responses:
+    200:
+      description: Success
+    default:
+      description: Request failed
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/problems.yaml#/components/schemas/Problem"
+
