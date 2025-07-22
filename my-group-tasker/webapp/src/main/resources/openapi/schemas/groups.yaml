@@ -51,6 +51,15 @@ components:
         overdue:
           type: boolean
 
+    CreateGroupRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: "Personal care"
+
 
 
 

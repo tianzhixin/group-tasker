@@ -1,0 +1,51 @@
+put:
+  summary: Update a group
+  tags:
+    - Groups
+  operationId: updateGroup
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: ID of the group to update
+      schema:
+        type: integer
+        format: int32
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/groups.yaml#/components/schemas/CreateGroupRequest'
+  responses:
+    200:
+      description: Success
+    default:
+      description: Request failed
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/problems.yaml#/components/schemas/Problem"
+
+delete:
+  summary: Delete a group
+  tags:
+    - Groups
+  operationId: deleteGroup
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: ID of the group to delete
+      schema:
+        type: integer
+        format: int32
+  responses:
+    204:
+      description: Deleted
+    default:
+      description: Request failed
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/problems.yaml#/components/schemas/Problem"

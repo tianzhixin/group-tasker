@@ -1,0 +1,14 @@
+get:
+  summary: Get the group deletion impact
+  tags:
+    - Groups
+  operationId: getGroupDeletionImpact
+  responses:
+    200:
+      description: Success
+    default:
+      description: Request failed
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/problems.yaml#/components/schemas/Problem"

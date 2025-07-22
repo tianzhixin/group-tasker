@@ -34,5 +34,9 @@ servers:
 paths:
   /groups:
     $ref: "./paths/groups.yaml"
+  /groups/{id}:
+    $ref: "./paths/groups-id.yaml"
+  /groups/{id}/deletion-impact:
+    $ref: "./paths/groups-id-deletion-impact.yaml"
   /activities:
     $ref: "./paths/activities.yaml"
