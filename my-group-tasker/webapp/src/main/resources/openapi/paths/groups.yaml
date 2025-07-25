@@ -50,7 +50,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/groups.yaml#/components/schemas/CreateGroupRequest'
+          $ref: "../schemas/groups.yaml#/components/schemas/CreateGroupRequest"
   responses:
     200:
       description: Success
