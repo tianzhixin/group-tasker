@@ -17,8 +17,8 @@ components:
           format: uri
           description: |
             An absolute URI that identifies the problem type.
-          default: 'about:blank'
-          example: 'https://zalando.github.io/problem/constraint-violation'
+          default: "about:blank"
+          example: "https://zalando.github.io/problem/constraint-violation"
         title:
           type: string
           description: |

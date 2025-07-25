@@ -10,7 +10,7 @@ components:
   schemas:
     GroupPage:
       allOf:
-        - $ref: './pageBase.yaml#/components/schemas/PageBase'
+        - $ref: "./pageBase.yaml#/components/schemas/PageBase"
         - type: object
           required:
             - content
@@ -18,7 +18,7 @@ components:
             content:
               type: array
               items:
-                $ref: '#/components/schemas/Group'
+                $ref: "#/components/schemas/Group"
     Group:
       type: object
       required:
@@ -34,7 +34,7 @@ components:
         activities:
           type: array
           items:
-            $ref: '#/components/schemas/ActivitySummary'
+            $ref: "#/components/schemas/ActivitySummary"
 
     ActivitySummary:
       type: object
@@ -50,6 +50,48 @@ components:
           type: string
         overdue:
           type: boolean
+
+    CreateGroupRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: "Personal care"
+
+    SimpleGroupRepresentation:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          example: "Personal care"
+
+    GroupDeletionImpact:
+      type: object
+      required:
+        - name
+        - associatedActivities
+        - associatedTasks
+        - associatedUncompletedTasks
+      properties:
+        name:
+          type: string
+        associatedActivities:
+          type: integer
+        associatedTasks:
+          type: integer
+        associatedUncompletedTasks:
+          type: integer
+
+
+
 
 
 
