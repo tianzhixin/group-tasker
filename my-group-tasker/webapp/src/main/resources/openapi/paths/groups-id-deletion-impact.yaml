@@ -6,6 +6,10 @@ get:
   responses:
     200:
       description: Success
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/groups.yaml#/components/schemas/GroupDeletionImpactCheck"
     default:
       description: Request failed
       content:
