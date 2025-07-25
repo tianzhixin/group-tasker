@@ -73,7 +73,7 @@ components:
           type: string
           example: "Personal care"
 
-    GroupDeletionImpactCheck:
+    GroupDeletionImpact:
       type: object
       required:
         - name

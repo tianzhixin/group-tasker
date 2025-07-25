@@ -9,7 +9,7 @@ get:
       content:
         application/problem+json:
           schema:
-            $ref: "../schemas/groups.yaml#/components/schemas/GroupDeletionImpactCheck"
+            $ref: "../schemas/groups.yaml#/components/schemas/GroupDeletionImpact"
     default:
       description: Request failed
       content:
