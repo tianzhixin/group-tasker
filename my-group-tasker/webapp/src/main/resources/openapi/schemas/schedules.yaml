@@ -1,0 +1,32 @@
+openapi: "3.0.3"
+info:
+  title: Schemas for schedule related objects.
+  version: ${project.version}
+paths:
+  /schemas/schedule:
+    summary: Contains only schema objects.
+
+components:
+  schemas:
+    Schedules:
+      type: array
+      items:
+        $ref: "#/components/schemas/Schedule"
+
+    Schedule:
+      type: object
+      required:
+        - taskId
+        - dueDate
+        - overdue
+      properties:
+        taskId:
+          type: integer
+          format: int32
+        dueDate:
+          type: string
+          format: date-time
+        overdue:
+          type: boolean
+
+
