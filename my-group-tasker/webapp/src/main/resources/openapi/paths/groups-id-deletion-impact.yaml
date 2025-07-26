@@ -3,6 +3,14 @@ get:
   tags:
     - Groups
   operationId: getGroupDeletionImpact
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: ID of the group to update
+      schema:
+        type: integer
+        format: int32
   responses:
     200:
       description: Success
