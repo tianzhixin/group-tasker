@@ -1,14 +1,14 @@
 openapi: "3.0.3"
 info:
-  title: Schemas for Activities page.
+  title: Schemas for Tasks page.
   version: ${project.version}
 paths:
-  /schemas/activities:
+  /schemas/tasks:
     summary: Contains only schema objects.
 
 components:
   schemas:
-    ActivityPage:
+    TaskPage:
       allOf:
         - $ref: "./pageBase.yaml#/components/schemas/PageBase"
         - type: object
@@ -18,56 +18,69 @@ components:
             content:
               type: array
               items:
-                $ref: "#/components/schemas/Activity"
-    Activity:
+                $ref: "#/components/schemas/Task"
+    Task:
       type: object
       required:
         - id
-        - name
+        - activity
         - group
-        - overdue
-        - schedules
-        - lastCompleted
+        - dueDate
+        - status
+        - daysOverdue
+        - completionDate
         - daysSinceCompletion
       properties:
         id:
           type: integer
           format: int32
-        name:
-          type: string
+        activity:
+          $ref: "./activities.yaml#/components/schemas/SimpleActivityRepresentation"
         group:
           $ref: "./groups.yaml#/components/schemas/SimpleGroupRepresentation"
-        overdue:
-          type: boolean
-        schedules:
-          $ref: "./schedules.yaml#/components/schemas/Schedules"
-        lastCompleted:
+        dueDate:
+          type: string
+          format: date-time
+        status:
+          $ref: "#/components/schemas/TaskStatus"
+        daysOverdue:
+          type: integer
+          format: int32
+        completionDate:
           type: string
           format: date-time
         daysSinceCompletion:
           type: integer
           format: int32
+          minimum: 1
 
-    CreateActivityRequest:
+    CreateTaskRequest:
       type: object
       required:
-        - name
-        - groupId
+        - activityId
       properties:
-        name:
-          type: string
-        groupId:
+        activityId:
           type: integer
           format: int32
+        dueDate:
+          type: string
+          format: date-time
+        completionDate:
+          type: string
+          format: date-time
 
-    PatchActivityRequest:
+    PatchTaskRequest:
       type: object
       properties:
-        name:
-          type: string
-        groupId:
+        activityId:
           type: integer
           format: int32
+        dueDate:
+          type: string
+          format: date-time
+        completionDate:
+          type: string
+          format: date-time
 
 
     ActivityDeletionImpact:
@@ -85,15 +98,12 @@ components:
           type: integer
 
 
-    SimpleActivityRepresentation:
-      type: object
-      required:
-        - id
-        - name
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-          example: "Replace my toothbrush"
+    TaskStatus:
+      type: integer
+      format: int32
+      enum: [ 0, 1, 2 ]
+      description: |
+        Task status:
+        - 0: TODO
+        - 1: OVERDUE
+        - 2: COMPLETED

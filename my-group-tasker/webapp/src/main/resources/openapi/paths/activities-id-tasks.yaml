@@ -1,0 +1,45 @@
+get:
+  summary: Retrieve tasks under a given activity
+  description: |
+    This operation returns all activities in alphabetical order.
+    Supports paging of results through the optional `page` and `size` query parameters.
+  tags:
+    - Tasks
+  operationId: getTasksUnderAnActivity
+  parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+        format: int32
+    - name: size
+      description: |
+        Limits the number of activities displayed on each page.
+      in: query
+      schema:
+        type: integer
+        format: int32
+        default: 15
+      required: false
+    - name: page
+      description: |
+        Supports pagination by allowing the client to provide a zero-based starting page for a query.
+      in: query
+      schema:
+        type: integer
+        format: int32
+        default: 0
+      required: false
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/tasks.yaml#/components/schemas/TaskPage"
+    default:
+      description: Request failed
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/problems.yaml#/components/schemas/Problem"

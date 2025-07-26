@@ -1,13 +1,13 @@
 put:
-  summary: Update an activity
+  summary: Update a task
   tags:
-    - Activities
-  operationId: updateActivity
+    - Tasks
+  operationId: updateTask
   parameters:
     - name: id
       in: path
       required: true
-      description: ID of the activity to update
+      description: ID of the task to update
       schema:
         type: integer
         format: int32
@@ -16,7 +16,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: "../schemas/activities.yaml#/components/schemas/CreateActivityRequest"
+          $ref: "../schemas/tasks.yaml#/components/schemas/CreateTaskRequest"
   responses:
     200:
       description: Success
@@ -28,15 +28,15 @@ put:
             $ref: "../schemas/problems.yaml#/components/schemas/Problem"
 
 patch:
-  summary: Partially update an activity
+  summary: Partially update a task
   tags:
-    - Activities
-  operationId: patchActivity
+    - Tasks
+  operationId: patchTask
   parameters:
     - name: id
       in: path
       required: true
-      description: ID of the activity to update
+      description: ID of the task to update
       schema:
         type: integer
         format: int32
@@ -45,7 +45,7 @@ patch:
     content:
       application/json:
         schema:
-          $ref: "../schemas/activities.yaml#/components/schemas/PatchActivityRequest"
+          $ref: "../schemas/tasks.yaml#/components/schemas/PatchTaskRequest"
   responses:
     200:
       description: Success
@@ -57,15 +57,15 @@ patch:
             $ref: "../schemas/problems.yaml#/components/schemas/Problem"
 
 delete:
-  summary: Delete an activity
+  summary: Delete a task
   tags:
-    - Activities
-  operationId: deleteActivity
+    - Tasks
+  operationId: deleteTask
   parameters:
     - name: id
       in: path
       required: true
-      description: ID of the activity to delete
+      description: ID of the task to delete
       schema:
         type: integer
         format: int32
