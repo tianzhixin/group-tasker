@@ -1,13 +1,13 @@
 get:
-  summary: Get the group deletion impact
+  summary: Get the activity deletion impact
   tags:
-    - Groups
-  operationId: getGroupDeletionImpact
+    - Activities
+  operationId: getActivityDeletionImpact
   parameters:
     - name: id
       in: path
       required: true
-      description: ID of the group to update
+      description: ID of the activity to delete
       schema:
         type: integer
         format: int32
@@ -17,7 +17,7 @@ get:
       content:
         application/problem+json:
           schema:
-            $ref: "../schemas/groups.yaml#/components/schemas/GroupDeletionImpact"
+            $ref: "../schemas/activities.yaml#/components/schemas/ActivityDeletionImpact"
     default:
       description: Request failed
       content:

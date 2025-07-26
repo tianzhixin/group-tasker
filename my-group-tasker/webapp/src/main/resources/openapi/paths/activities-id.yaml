@@ -1,0 +1,80 @@
+put:
+  summary: Update an activity
+  tags:
+    - Activities
+  operationId: updateActivity
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: ID of the activity to update
+      schema:
+        type: integer
+        format: int32
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/activities.yaml#/components/schemas/CreateActivityRequest"
+  responses:
+    200:
+      description: Success
+    default:
+      description: Request failed
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/problems.yaml#/components/schemas/Problem"
+
+patch:
+  summary: Partially update an activity
+  tags:
+    - Activities
+  operationId: patchActivity
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: ID of the activity to update
+      schema:
+        type: integer
+        format: int32
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/activities.yaml#/components/schemas/CreateActivityRequest"
+  responses:
+    200:
+      description: Success
+    default:
+      description: Request failed
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/problems.yaml#/components/schemas/Problem"
+
+delete:
+  summary: Delete an activity
+  tags:
+    - Activities
+  operationId: deleteActivity
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: ID of the activity to delete
+      schema:
+        type: integer
+        format: int32
+  responses:
+    204:
+      description: Deleted
+    default:
+      description: Request failed
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/problems.yaml#/components/schemas/Problem"

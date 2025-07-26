@@ -3,7 +3,6 @@ get:
   description: |
     This operation returns all activities in alphabetical order.
     Supports paging of results through the optional `page` and `size` query parameters.
-
   tags:
     - Activities
   operationId: getActivities
@@ -32,10 +31,33 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../schemas/groups.yaml#/components/schemas/Group"
+            $ref: "../schemas/activities.yaml#/components/schemas/ActivityPage"
     default:
       description: Request failed
       content:
         application/problem+json:
           schema:
             $ref: "../schemas/problems.yaml#/components/schemas/Problem"
+
+post:
+  summary: Create an activity
+  tags:
+    - Activities
+  operationId: createActivity
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/activities.yaml#/components/schemas/CreateActivityRequest"
+  responses:
+    200:
+      description: success
+    default:
+      description: Request failed
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/problems.yaml#/components/schemas/Problem"
+
+
