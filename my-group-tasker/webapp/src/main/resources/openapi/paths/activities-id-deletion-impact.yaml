@@ -1,0 +1,26 @@
+get:
+  summary: Get the activity deletion impact
+  tags:
+    - Activities
+  operationId: getActivityDeletionImpact
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: ID of the activity to delete
+      schema:
+        type: integer
+        format: int32
+  responses:
+    200:
+      description: Success
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/activities.yaml#/components/schemas/ActivityDeletionImpact"
+    default:
+      description: Request failed
+      content:
+        application/problem+json:
+          schema:
+            $ref: "../schemas/problems.yaml#/components/schemas/Problem"

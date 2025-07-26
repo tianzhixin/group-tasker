@@ -61,6 +61,18 @@ components:
           format: int32
 
 
-
+    ActivityDeletionImpact:
+      type: object
+      required:
+        - name
+        - associatedTasks
+        - associatedUncompletedTasks
+      properties:
+        name:
+          type: string
+        associatedTasks:
+          type: integer
+        associatedUncompletedTasks:
+          type: integer
 
 

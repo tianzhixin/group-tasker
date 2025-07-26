@@ -42,3 +42,5 @@ paths:
     $ref: "./paths/activities.yaml"
   /activities/{id}:
     $ref: "./paths/activities-id.yaml"
+  /activities/{id}/deletion-impact:
+    $ref: "./paths/activities-id-deletion-impact.yaml"
