@@ -49,7 +49,7 @@ post:
     content:
       application/json:
         schema:
-          $ref:
+          $ref: "../schemas/activities.yaml#/components/schemas/CreateActivityRequest"
   responses:
     200:
       description: success

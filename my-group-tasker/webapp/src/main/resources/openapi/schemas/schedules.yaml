@@ -3,7 +3,7 @@ info:
   title: Schemas for schedule related objects.
   version: ${project.version}
 paths:
-  /schemas/schedule:
+  /schemas/schedules:
     summary: Contains only schema objects.
 
 components:
