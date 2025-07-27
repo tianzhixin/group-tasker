@@ -18,6 +18,7 @@
         <module>models</module>
         <module>skeleton</module>
         <module>webapp</module>
+        <module>data</module>
     </modules>
 
     <url/>
