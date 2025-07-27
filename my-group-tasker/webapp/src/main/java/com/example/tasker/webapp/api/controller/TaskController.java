@@ -1,7 +1,7 @@
 package com.example.tasker.webapp.api.controller;
 
-import com.example.tasker.models.model.GroupPage;
-import com.example.tasker.skeleton.api.GroupsApi;
+import com.example.tasker.models.model.TaskPage;
+import com.example.tasker.skeleton.api.TasksApi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/group-tasker")
-public class GroupController implements GroupsApi {
-    private static final Logger LOG = LoggerFactory.getLogger(GroupController.class);
+public class TaskController implements TasksApi {
+    private static final Logger LOG = LoggerFactory.getLogger(TaskController.class);
 
     @Override
-    public ResponseEntity<GroupPage> getGroups(Integer size, Integer page){
-        return new ResponseEntity<>(new GroupPage(),HttpStatus.OK);
+    public ResponseEntity<TaskPage> getTasks(Integer size, Integer page){
+        return new ResponseEntity<>(new TaskPage(), HttpStatus.OK);
     }
-
 }

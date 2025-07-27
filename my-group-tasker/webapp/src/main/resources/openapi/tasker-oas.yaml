@@ -44,3 +44,11 @@ paths:
     $ref: "./paths/activities-id.yaml"
   /activities/{id}/deletion-impact:
     $ref: "./paths/activities-id-deletion-impact.yaml"
+  /tasks:
+    $ref: "./paths/tasks.yaml"
+  /tasks/{id}:
+    $ref: "./paths/tasks-id.yaml"
+  /activities/{id}/tasks:
+    $ref: "./paths/activities-id-tasks.yaml"
+  /tasks/{id}/complete:
+    $ref: "./paths/tasks-id-complete.yaml"
