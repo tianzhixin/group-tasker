@@ -50,3 +50,5 @@ paths:
     $ref: "./paths/tasks-id.yaml"
   /activities/{id}/tasks:
     $ref: "./paths/activities-id-tasks.yaml"
+  /tasks/{id}/complete:
+    $ref: "./paths/tasks-id-complete.yaml"
