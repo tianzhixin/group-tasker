@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GroupController implements GroupsApi {
     private static final Logger LOG = LoggerFactory.getLogger(GroupController.class);
 
+    @Override
     public ResponseEntity<GroupPage> getGroups(Integer size, Integer page){
         return new ResponseEntity<>(new GroupPage(),HttpStatus.OK);
     }
