@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/group-tasker")
 public class ActivityController implements ActivitiesApi {
-    private static final Logger LOG = LoggerFactory.getLogger(GroupController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ActivityController.class);
 
     @Override
     public ResponseEntity<ActivityPage> getActivities(Integer size, Integer page){
