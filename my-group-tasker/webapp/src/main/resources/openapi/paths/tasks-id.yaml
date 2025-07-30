@@ -39,7 +39,7 @@ patch:
       description: ID of the task to update
       schema:
         type: integer
-        format: int32
+        format: int64
   requestBody:
     required: true
     content:
@@ -68,7 +68,7 @@ delete:
       description: ID of the task to delete
       schema:
         type: integer
-        format: int32
+        format: int64
   responses:
     204:
       description: Deleted

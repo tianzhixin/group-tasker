@@ -22,7 +22,7 @@ components:
       properties:
         taskId:
           type: integer
-          format: int32
+          format: int64
         dueDate:
           type: string
           format: date-time

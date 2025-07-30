@@ -32,7 +32,7 @@ components:
       properties:
         id:
           type: integer
-          format: int32
+          format: int64
         name:
           type: string
         group:
@@ -58,7 +58,7 @@ components:
           type: string
         groupId:
           type: integer
-          format: int32
+          format: int64
 
     PatchActivityRequest:
       type: object
@@ -67,7 +67,7 @@ components:
           type: string
         groupId:
           type: integer
-          format: int32
+          format: int64
 
 
     ActivityDeletionImpact:
@@ -93,7 +93,7 @@ components:
       properties:
         id:
           type: integer
-          format: int32
+          format: int64
         name:
           type: string
           example: "Replace my toothbrush"

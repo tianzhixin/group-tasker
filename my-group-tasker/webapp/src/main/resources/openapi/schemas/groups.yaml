@@ -24,11 +24,10 @@ components:
       required:
         - id
         - name
-        - activities
       properties:
         id:
           type: integer
-          format: int32
+          format: int64
         name:
           type: string
         activities:
@@ -45,7 +44,7 @@ components:
       properties:
         id:
           type: integer
-          format: int32
+          format: int64
         name:
           type: string
         overdue:
@@ -68,7 +67,7 @@ components:
       properties:
         id:
           type: integer
-          format: int32
+          format: int64
         name:
           type: string
           example: "Personal care"

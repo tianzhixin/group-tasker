@@ -33,7 +33,7 @@ components:
       properties:
         id:
           type: integer
-          format: int32
+          format: int64
         activity:
           $ref: "./activities.yaml#/components/schemas/SimpleActivityRepresentation"
         group:
@@ -61,7 +61,7 @@ components:
       properties:
         activityId:
           type: integer
-          format: int32
+          format: int64
         dueDate:
           type: string
           format: date-time
@@ -74,7 +74,7 @@ components:
       properties:
         activityId:
           type: integer
-          format: int32
+          format: int64
         dueDate:
           type: string
           format: date-time

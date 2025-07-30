@@ -10,7 +10,7 @@ patch:
       description: ID of the task to complete
       schema:
         type: integer
-        format: int32
+        format: int64
   responses:
     200:
       description: Success
