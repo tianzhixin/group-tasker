@@ -1,4 +1,4 @@
-package com.example.tasker.webapp.api.controller;
+package com.example.tasker.webapp.api.controllers;
 
 import com.example.tasker.models.model.TaskPage;
 import com.example.tasker.skeleton.api.TasksApi;
