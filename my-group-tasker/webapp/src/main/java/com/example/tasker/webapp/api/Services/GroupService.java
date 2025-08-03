@@ -4,16 +4,18 @@ import com.example.tasker.converters.GroupConverter;
 import com.example.tasker.entities.GroupEntity;
 import com.example.tasker.models.model.GroupPage;
 import com.example.tasker.repos.GroupRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class GroupService {
     private final GroupRepository groupRepository;
     private final GroupConverter groupConverter;
@@ -23,6 +25,7 @@ public class GroupService {
         this.groupConverter = groupConverter;
     }
 
+    @Transactional(readOnly = true)
     public GroupPage getGroups(Integer size, Integer page){
         Optional<Integer> sizeOpt = Optional.ofNullable(size);
         Optional<Integer> pageOpt = Optional.ofNullable(page);
