@@ -5,11 +5,13 @@ import com.example.tasker.skeleton.api.GroupsApi;
 import com.example.tasker.webapp.api.Services.GroupService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/group-tasker")
 @Slf4j
+@Validated
 public class GroupController implements GroupsApi {
     private final GroupService groupService;
 
@@ -19,6 +21,7 @@ public class GroupController implements GroupsApi {
 
     @Override
     public ResponseEntity<GroupPage> getGroups(Integer size, Integer page){
+        log.info("Called getGroups with size = {} and page = {}", size,page);
         GroupPage groupPage = groupService.getGroups(size,page);
         return ResponseEntity.ok(groupPage);
     }
